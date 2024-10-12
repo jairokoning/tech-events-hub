@@ -15,6 +15,9 @@
       "quoteStyle": "single",
       "semicolons": "asNeeded",
       "trailingCommas": "es5"
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   },
   "linter": {
@@ -27,8 +30,18 @@
     }
   },
   "files": {
-    "ignore": [
-      "node_modules"
-    ]
-  }
+    "ignore": ["node_modules"]
+  },
+  "overrides": [
+    {
+      "include": ["apps/backend"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ]
 }
