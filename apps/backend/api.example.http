@@ -5,3 +5,21 @@ Content-Type: application/json
   "email": "",
   "password": ""
 }
+
+###
+
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+  "short_description": "",
+  "content": "",
+  "organizer": "",
+  "techs": [""],
+  "start_date": "",
+  "end_date": ""
+}
+
+###
+
+GET http://localhost:3333/events

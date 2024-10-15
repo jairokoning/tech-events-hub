@@ -18,8 +18,13 @@ export class EventsService {
     return eventDoc
   }
 
-  findAll() {
-    return 'This action returns all events'
+  listActive() {
+    const currentDate = new Date()
+    currentDate.setUTCHours(0, 0, 0, 0)
+    const currentDateString = currentDate.toISOString()
+    return this.eventModel
+      .find({ end_date: { $gte: currentDateString } })
+      .exec()
   }
 
   findOne(id: number) {

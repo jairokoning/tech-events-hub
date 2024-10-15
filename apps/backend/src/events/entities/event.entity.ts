@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Document } from 'mongoose'
-import { Timestamp } from 'rxjs'
 
 export type EventDocument = Event & Document
 
@@ -9,7 +8,7 @@ export type EventProps = {
   screen_name: string
 }
 
-@Schema()
+@Schema({ timestamps: true })
 export class Event {
   constructor(props: EventProps) {
     Object.assign(this, props)
@@ -32,9 +31,6 @@ export class Event {
 
   @Prop({ required: true })
   end_date: Date
-
-  @Prop({ required: true })
-  created_at: Date
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event)
